@@ -87,7 +87,7 @@ if [ $? -ne 0 ]; then
   export LINE_TO_ADD="\nexport PATH=\"$FASTLANE_DIR_RAW:\$PATH\"\n"
 
   if [[ "$shell" == "fish" ]]; then
-    LINE_TO_ADD="set -x PATH $FASTLANE_DIR_RAW \$PATH" # fish has its own way of setting variables
+    LINE_TO_ADD="set -U fish_user_paths $FASTLANE_DIR_RAW \$fish_user_paths" # fish has its own way of setting variables
   fi
 
   if [ -f $profile_expanded ]; then
